@@ -1,7 +1,6 @@
-// web-dashboard/src/App.js - bagian header
-<header className="header">
-  <img src="/logo-apet.png" alt="Agen Apet Pandeglang" className="logo" />
-  <h1>🏢 Agen-Apet-Pandeglang</h1>
-  <p className="tagline">Melayani supplier kebutuhan masyarakat dan dapur MBG sekabupaten Pandeglang</p>
-  <p className="admin-info">Owner: Agus Suryana | Admin: Deska Wiata Praja S</p>
-</header>
+// mobile-app/App.js - tambahkan di LoginScreen
+<View style={styles.brandContainer}>
+  <Image source={require('./assets/logo-apet.png')} style={styles.logo} />
+  <Text style={styles.title}>🚰 Agen-Apet-Pandeglang</Text>
+  <Text style={styles.subtitle}>Melayani supplier kebutuhan masyarakat dan dapur MBG sekabupaten Pandeglang</Text>
+</View>
