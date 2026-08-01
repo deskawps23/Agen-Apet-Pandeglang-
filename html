@@ -3,138 +3,1096 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agen Apet Pandeglang</title>
-  <meta name="description" content="Supplier kebutuhan masyarakat dan dapur MBG se-Kabupaten Pandeglang." />
+  <title>Agen Apet Pandeglang | Supplier Kebutuhan Masyarakat & Dapur MBG</title>
+  <meta name="description" content="Agen Apet Pandeglang melayani supplier kebutuhan masyarakat dan dapur MBG se-Kabupaten Pandeglang dengan layanan cepat, rapi, dan terpercaya." />
+  <meta name="theme-color" content="#1e2f23" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #1f2937;
+    :root{
+      --bg: #f5f0e6;
+      --paper: rgba(255,255,255,.72);
+      --paper-strong: rgba(255,255,255,.9);
+      --text: #1b1a16;
+      --muted: #5f5a4f;
+      --line: rgba(27,26,22,.12);
+      --brand: #24452f;
+      --brand-2: #8d5f31;
+      --accent: #d9c09b;
+      --shadow: 0 20px 60px rgba(34, 30, 18, .12);
+      --radius: 24px;
+      --radius-sm: 14px;
+      --container: min(1180px, calc(100vw - 32px));
     }
 
-    header {
-      background: linear-gradient(135deg, #0f62fe, #14b8a6);
-      color: white;
-      padding: 70px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(141,95,49,.16), transparent 28%),
+        radial-gradient(circle at 82% 10%, rgba(36,69,47,.10), transparent 26%),
+        linear-gradient(180deg, #f7f2e9 0%, #f1ebde 100%);
+      min-height:100vh;
+      overflow-x:hidden;
     }
 
-    .container {
-      width: min(1000px, calc(100% - 32px));
-      margin: 0 auto;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.18;
+      background-image:
+        linear-gradient(rgba(27,26,22,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,26,22,.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.65), transparent 85%);
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: 2.5rem;
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+
+    .container{
+      width:var(--container);
+      margin-inline:auto;
     }
 
-    p {
-      margin: 0 0 16px;
-      line-height: 1.6;
+    .reveal{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: #25d366;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+    .stagger > *{
+      opacity:0;
+      transform:translateY(24px);
+      animation:rise .8s ease forwards;
+    }
+    .stagger > *:nth-child(1){animation-delay:.08s}
+    .stagger > *:nth-child(2){animation-delay:.18s}
+    .stagger > *:nth-child(3){animation-delay:.28s}
+    .stagger > *:nth-child(4){animation-delay:.38s}
+    .stagger > *:nth-child(5){animation-delay:.48s}
+
+    @keyframes rise{
+      to{opacity:1;transform:translateY(0)}
     }
 
-    main {
-      padding: 36px 0 60px;
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter: blur(14px);
+      background:rgba(247,242,233,.65);
+      border-bottom:1px solid rgba(27,26,22,.08);
     }
 
-    section {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      min-height:78px;
     }
 
-    h2 {
-      margin-top: 0;
-      color: #0f62fe;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:-.02em;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+    .brand-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:
+        linear-gradient(135deg, var(--brand), #3d6a49 60%, #5a8b67 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.25),
+        0 12px 24px rgba(36,69,47,.2);
+      position:relative;
+      overflow:hidden;
     }
 
-    .card {
-      background: #f8fbff;
-      border: 1px solid #e5eefc;
-      border-radius: 14px;
-      padding: 18px;
+    .brand-mark::before,
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      background:rgba(255,255,255,.18);
+    }
+    .brand-mark::before{
+      width:44px;height:44px;left:-12px;top:-20px;
+      transform:rotate(25deg);
+    }
+    .brand-mark::after{
+      width:18px;height:18px;right:7px;bottom:7px;
+      background:rgba(217,192,155,.6);
+      box-shadow:0 0 0 5px rgba(255,255,255,.08);
     }
 
-    footer {
-      text-align: center;
-      padding: 18px;
-      background: #0f172a;
-      color: white;
+    .brand-text{
+      line-height:1.05;
+    }
+    .brand-text strong{
+      display:block;
+      font-size:1rem;
+    }
+    .brand-text span{
+      display:block;
+      color:var(--muted);
+      font-size:.75rem;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      color:#3d3a33;
+      font-weight:600;
+      font-size:.95rem;
+    }
+
+    .nav-links a{
+      position:relative;
+    }
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:100%;
+      height:2px;
+      background:var(--brand);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .28s ease;
+    }
+    .nav-links a:hover::after{transform:scaleX(1)}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .menu-btn{
+      display:none;
+      width:46px;
+      height:46px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.65);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+    }
+    .menu-btn span,
+    .menu-btn span::before,
+    .menu-btn span::after{
+      display:block;
+      width:18px;
+      height:2px;
+      background:var(--text);
+      border-radius:999px;
+      position:relative;
+      transition:.25s ease;
+    }
+    .menu-btn span::before,
+    .menu-btn span::after{
+      content:"";
+      position:absolute;
+      left:0;
+    }
+    .menu-btn span::before{top:-6px}
+    .menu-btn span::after{top:6px}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:700;
+      transition:transform .2s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+    .btn:active{
+      transform:translateY(0) scale(.98);
+    }
+
+    .btn-primary{
+      color:#f7f3ea;
+      background:linear-gradient(135deg, var(--brand), #31583c);
+      box-shadow:0 16px 34px rgba(36,69,47,.22);
+    }
+    .btn-primary:hover{
+      box-shadow:0 22px 44px rgba(36,69,47,.28);
+      filter:saturate(1.05);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.58);
+      border-color:rgba(27,26,22,.12);
+      color:var(--text);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero{
+      padding:46px 0 28px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .hero-copy{
+      padding:34px 0 18px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(36,69,47,.14);
+      border-radius:999px;
+      color:var(--brand);
+      background:rgba(255,255,255,.46);
+      font-size:.86rem;
+      font-weight:800;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#6f9a78;
+      box-shadow:0 0 0 6px rgba(111,154,120,.12);
+    }
+
+    h1,h2,h3{
+      font-family:"DM Serif Display", serif;
+      letter-spacing:-.03em;
+      line-height:.96;
+      margin:0;
+    }
+
+    h1{
+      font-size:clamp(3rem, 6vw, 6.1rem);
+      margin-top:18px;
+      max-width:12ch;
+    }
+
+    .lead{
+      margin:20px 0 28px;
+      font-size:clamp(1rem, 1.4vw, 1.16rem);
+      line-height:1.8;
+      color:var(--muted);
+      max-width:62ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:30px;
+    }
+
+    .hero-meta{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .meta-item{
+      padding:16px 0 0;
+      border-top:1px solid rgba(27,26,22,.12);
+    }
+    .meta-item strong{
+      display:block;
+      font-size:1.35rem;
+      letter-spacing:-.04em;
+    }
+    .meta-item span{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .hero-panel{
+      position:relative;
+      min-height:620px;
+      border-radius:calc(var(--radius) + 8px);
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.64), rgba(255,255,255,.4)),
+        linear-gradient(160deg, #e7dcc8 0%, #d8c0a4 45%, #b99667 100%);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.45);
+      isolation:isolate;
+    }
+
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      inset:auto -10% -12% auto;
+      width:72%;
+      aspect-ratio:1;
+      border-radius:44% 56% 60% 40% / 37% 40% 60% 63%;
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.65), rgba(255,255,255,.08) 56%, transparent 60%),
+                  linear-gradient(135deg, rgba(36,69,47,.78), rgba(36,69,47,.24));
+      filter: blur(.2px);
+      transform:rotate(-10deg);
+    }
+
+    .hero-panel::after{
+      content:"";
+      position:absolute;
+      left:-12%;
+      top:10%;
+      width:58%;
+      aspect-ratio:1;
+      border-radius:50%;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.42), transparent 60%);
+      border:1px solid rgba(255,255,255,.22);
+    }
+
+    .warehouse{
+      position:absolute;
+      inset:auto 0 0 0;
+      height:54%;
+      padding:28px;
+      display:grid;
+      align-content:end;
+      z-index:2;
+    }
+
+    .warehouse-box{
+      background:rgba(254,252,248,.78);
+      backdrop-filter: blur(12px);
+      border:1px solid rgba(255,255,255,.56);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 16px 40px rgba(76,57,34,.16);
+    }
+
+    .warehouse-box h3{
+      font-size:1.8rem;
+      margin-bottom:10px;
+    }
+
+    .warehouse-box p{
+      margin:0 0 16px;
+      color:#5f5a4f;
+      line-height:1.7;
+    }
+
+    .supply-line{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:.86rem;
+      font-weight:700;
+      background:rgba(36,69,47,.08);
+      color:var(--brand);
+      border:1px solid rgba(36,69,47,.12);
+    }
+
+    .section{
+      padding:72px 0;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns: 1fr .8fr;
+      gap:24px;
+      align-items:end;
+      margin-bottom:28px;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      max-width:58ch;
+    }
+
+    h2{
+      font-size:clamp(2.3rem, 4.8vw, 4.4rem);
+      max-width:10ch;
+    }
+
+    .services-layout{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+    }
+
+    .service-block{
+      min-height:270px;
+      border-radius:var(--radius);
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.45);
+    }
+
+    .service-primary{
+      background:
+        radial-gradient(circle at 80% 18%, rgba(255,255,255,.25), transparent 20%),
+        linear-gradient(145deg, #254330, #1a3022 65%, #132419 100%);
+      color:#f7f3ea;
+      display:grid;
+      align-content:space-between;
+    }
+
+    .service-primary p{
+      color:rgba(247,243,234,.76);
+      max-width:52ch;
+      line-height:1.8;
+    }
+
+    .number-badge{
+      display:inline-flex;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:800;
+      margin-bottom:16px;
+    }
+
+    .service-stack{
+      display:grid;
+      gap:22px;
+    }
+
+    .service-note{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.68)),
+        linear-gradient(135deg, rgba(217,192,155,.32), rgba(36,69,47,.08));
+      backdrop-filter: blur(12px);
+    }
+
+    .service-note p{
+      color:var(--muted);
+      line-height:1.75;
+      max-width:42ch;
+    }
+
+    .list-clean{
+      margin:18px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+
+    .list-clean li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:#312d26;
+      line-height:1.65;
+    }
+
+    .list-clean li::before{
+      content:"";
+      width:10px;
+      height:10px;
+      margin-top:.5em;
+      border-radius:50%;
+      flex:0 0 auto;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow:0 0 0 5px rgba(36,69,47,.08);
+    }
+
+    .coverage{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .coverage-item{
+      padding:18px 0;
+      border-top:1px solid rgba(27,26,22,.12);
+    }
+    .coverage-item strong{
+      font-size:1.05rem;
+      display:block;
+      margin-bottom:6px;
+    }
+    .coverage-item span{
+      color:var(--muted);
+      font-size:.94rem;
+      line-height:1.6;
+    }
+
+    .process{
+      display:grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap:26px;
+      align-items:start;
+    }
+
+    .process-side{
+      position:sticky;
+      top:104px;
+      padding:22px 0;
+    }
+
+    .process-side p{
+      color:var(--muted);
+      line-height:1.8;
+      max-width:40ch;
+    }
+
+    .timeline{
+      position:relative;
+      display:grid;
+      gap:18px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:16px;
+      top:16px;
+      bottom:16px;
+      width:2px;
+      background:linear-gradient(180deg, rgba(36,69,47,.28), rgba(141,95,49,.12));
+    }
+
+    .step{
+      position:relative;
+      margin-left:0;
+      padding:22px 22px 22px 56px;
+      border-radius:22px;
+      background:rgba(255,255,255,.62);
+      border:1px solid rgba(27,26,22,.08);
+      backdrop-filter: blur(10px);
+      box-shadow:0 14px 34px rgba(53,43,27,.08);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .step:hover{
+      transform:translateY(-3px);
+      box-shadow:0 20px 42px rgba(53,43,27,.12);
+    }
+
+    .step::before{
+      content:attr(data-step);
+      position:absolute;
+      left:0;
+      top:20px;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--brand), #45624c);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:.85rem;
+      font-weight:800;
+      box-shadow:0 0 0 8px rgba(36,69,47,.08);
+    }
+
+    .step h3{
+      font-size:1.55rem;
+      margin-bottom:8px;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+    }
+
+    .cta{
+      padding-bottom:84px;
+    }
+
+    .cta-wrap{
+      position:relative;
+      overflow:hidden;
+      border-radius:34px;
+      padding:32px;
+      background:
+        radial-gradient(circle at 84% 20%, rgba(217,192,155,.3), transparent 18%),
+        linear-gradient(135deg, #1d3525 0%, #234230 56%, #40634c 100%);
+      color:#f8f4ec;
+      box-shadow:0 26px 60px rgba(25,46,32,.24);
+    }
+
+    .cta-wrap::before{
+      content:"";
+      position:absolute;
+      inset:auto -4% -18% auto;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.22), transparent 62%);
+    }
+
+    .cta-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:20px;
+      align-items:end;
+    }
+
+    .cta-wrap p{
+      color:rgba(248,244,236,.78);
+      line-height:1.75;
+      max-width:58ch;
+      margin:12px 0 0;
+    }
+
+    .footer{
+      padding:24px 0 40px;
+      color:#4d473e;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      border-top:1px solid rgba(27,26,22,.1);
+      padding-top:20px;
+      font-size:.95rem;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .mobile-panel{
+      display:none;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .services-layout,
+      .section-head,
+      .process,
+      .cta-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-panel{
+        min-height:520px;
+      }
+
+      .process-side{
+        position:relative;
+        top:auto;
+      }
+
+      .coverage{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links,
+      .nav-actions .btn-secondary,
+      .nav-actions .btn-primary{
+        display:none;
+      }
+
+      .menu-btn{
+        display:flex;
+      }
+
+      .mobile-panel{
+        display:block;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .35s ease;
+        border-top:1px solid rgba(27,26,22,.08);
+      }
+
+      .mobile-panel.open{
+        max-height:320px;
+      }
+
+      .mobile-panel-inner{
+        padding:14px 0 18px;
+        display:grid;
+        gap:10px;
+      }
+
+      .mobile-link{
+        padding:12px 0;
+        color:#2f2c26;
+        font-weight:700;
+        border-bottom:1px dashed rgba(27,26,22,.08);
+      }
+
+      .mobile-actions{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:10px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero{
+        padding-top:24px;
+      }
+
+      .hero-copy{
+        padding-top:12px;
+      }
+
+      h1{
+        max-width:10ch;
+      }
+
+      .hero-meta{
+        grid-template-columns:1fr;
+      }
+
+      .hero-panel{
+        min-height:470px;
+      }
+
+      .service-block,
+      .cta-wrap{
+        padding:24px;
+      }
+
+      .footer-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="container">
-      <h1>Agen Apet Pandeglang</h1>
-      <p>Melayani supplier kebutuhan masyarakat dan dapur MBG se-Kabupaten Pandeglang</p>
-      <a
-        class="btn"
-        href="https://wa.me/6285695272863?text=Halo%20Agen%20Apet%20Pandeglang%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20Anda"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Chat WhatsApp
-      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#beranda" class="brand" aria-label="Agen Apet Pandeglang">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">
+            <strong>Agen Apet Pandeglang</strong>
+            <span>Supplier kebutuhan masyarakat & dapur MBG</span>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#layanan">Layanan</a>
+          <a href="#proses">Proses</a>
+          <a href="#cakupan">Cakupan</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-secondary" href="#layanan">Lihat Layanan</a>
+          <a class="btn btn-primary" href="#kontak">Hubungi Sekarang</a>
+          <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobilePanel">
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="mobile-panel" id="mobilePanel">
+        <div class="mobile-panel-inner">
+          <a class="mobile-link" href="#layanan">Layanan</a>
+          <a class="mobile-link" href="#proses">Proses</a>
+          <a class="mobile-link" href="#cakupan">Cakupan</a>
+          <a class="mobile-link" href="#kontak">Kontak</a>
+          <div class="mobile-actions">
+            <a class="btn btn-secondary" href="#layanan">Lihat Layanan</a>
+            <a class="btn btn-primary" href="#kontak">Hubungi Sekarang</a>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <h2>Tentang Kami</h2>
-      <p>
-        Agen Apet Pandeglang adalah supplier kebutuhan masyarakat dan dapur MBG yang siap melayani dengan cepat, ramah, dan terpercaya.
-      </p>
-    </section>
+  <main id="beranda">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy stagger">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Melayani se-Kabupaten Pandeglang
+          </div>
+          <h1>Agen kebutuhan pokok yang rapi, cepat, dan siap suplai.</h1>
+          <p class="lead">
+            Agen Apet Pandeglang melayani supplier kebutuhan masyarakat dan kebutuhan dapur MBG
+            dengan pendekatan yang terorganisir, komunikasi jelas, dan pengiriman yang dapat diandalkan.
+          </p>
 
-    <section>
-      <h2>Layanan Kami</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Suplai Kebutuhan</h3>
-          <p>Melayani kebutuhan masyarakat di wilayah Pandeglang.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontak">Ajukan Kebutuhan</a>
+            <a class="btn btn-secondary" href="#proses">Pelajari Proses</a>
+          </div>
+
+          <div class="hero-meta" aria-label="Informasi ringkas">
+            <div class="meta-item">
+              <strong>Supplier</strong>
+              <span>Kebutuhan masyarakat harian dan stok rutin.</span>
+            </div>
+            <div class="meta-item">
+              <strong>MBG</strong>
+              <span>Dukungan kebutuhan dapur dengan alur pengadaan tertata.</span>
+            </div>
+            <div class="meta-item">
+              <strong>Pandeglang</strong>
+              <span>Siap melayani area kabupaten secara bertahap dan konsisten.</span>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>Dapur MBG</h3>
-          <p>Mendukung kebutuhan operasional dapur MBG.</p>
-        </div>
-        <div class="card">
-          <h3>Pengantaran</h3>
-          <p>Siap membantu pengantaran sesuai kebutuhan pelanggan.</p>
+
+        <div class="hero-panel reveal" aria-hidden="true">
+          <div class="warehouse">
+            <div class="warehouse-box">
+              <h3>Stok yang tertata, layanan yang bisa diandalkan.</h3>
+              <p>
+                Fokus kami adalah memastikan kebutuhan tersedia dengan ritme pasok yang stabil,
+                cocok untuk kebutuhan harian, pengadaan rutin, maupun koordinasi dapur MBG.
+              </p>
+              <div class="supply-line">
+                <span class="chip">Bahan Pokok</span>
+                <span class="chip">Kebutuhan Dapur</span>
+                <span class="chip">Pengadaan Rutin</span>
+                <span class="chip">Distribusi Lokal</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>Kontak</h2>
-      <p><strong>Admin:</strong> 085695272863</p>
-      <p><strong>Pemilik:</strong> Agus Suryana</p>
-      <p><strong>Alamat:</strong> Pandeglang, Banten</p>
+    <section class="section" id="layanan">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Layanan Utama</div>
+            <h2>Pasok kebutuhan dengan sistem yang sederhana dan efektif.</h2>
+          </div>
+          <p>
+            Kami membangun layanan supplier yang mudah dihubungi, mudah dikoordinasikan,
+            dan mudah disesuaikan dengan kebutuhan lapangan. Bukan sekadar kirim barang,
+            tetapi menjaga kelancaran pasokan.
+          </p>
+        </div>
+
+        <div class="services-layout">
+          <article class="service-block service-primary reveal">
+            <div>
+              <span class="number-badge">01</span>
+              <h3>Supplier kebutuhan masyarakat</h3>
+              <p>
+                Melayani kebutuhan pokok dan kebutuhan umum masyarakat dengan pendekatan yang
+                responsif, terjadwal, dan fleksibel sesuai volume permintaan.
+              </p>
+            </div>
+            <div class="coverage" id="cakupan">
+              <div class="coverage-item">
+                <strong>Pasokan Harian</strong>
+                <span>Kebutuhan dengan ritme cepat dan pemenuhan berulang.</span>
+              </div>
+              <div class="coverage-item">
+                <strong>Pasokan Rutin</strong>
+                <span>Suplai berkala untuk kebutuhan yang terukur dan stabil.</span>
+              </div>
+              <div class="coverage-item">
+                <strong>Koordinasi Mudah</strong>
+                <span>Komunikasi langsung agar pesanan lebih jelas dan minim kendala.</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="service-stack">
+            <article class="service-block service-note reveal">
+              <span class="number-badge" style="background:rgba(36,69,47,.08); color:var(--brand); border-color:rgba(36,69,47,.1);">02</span>
+              <h3>Dukungan dapur MBG</h3>
+              <p>
+                Kami siap membantu kebutuhan suplai untuk dapur MBG se-Kabupaten Pandeglang
+                dengan alur kerja yang rapi, mulai dari permintaan, konfirmasi, hingga pengiriman.
+              </p>
+              <ul class="list-clean">
+                <li>Siap disesuaikan dengan kebutuhan volume dan jadwal.</li>
+                <li>Komitmen pada kerapihan proses dan kejelasan pemesanan.</li>
+                <li>Fokus pada kontinuitas pasok agar operasional tetap berjalan.</li>
+              </ul>
+            </article>
+
+            <article class="service-block service-note reveal">
+              <span class="number-badge" style="background:rgba(141,95,49,.1); color:var(--brand-2); border-color:rgba(141,95,49,.12);">03</span>
+              <h3>Area layanan Pandeglang</h3>
+              <p>
+                Cakupan layanan diarahkan untuk memenuhi kebutuhan masyarakat serta kebutuhan
+                dapur MBG di wilayah Kabupaten Pandeglang dengan pola distribusi yang terus ditingkatkan.
+              </p>
+              <ul class="list-clean">
+                <li>Fokus lokal agar koordinasi lebih cepat dan efisien.</li>
+                <li>Siap menerima permintaan kerja sama pasokan berkelanjutan.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proses">
+      <div class="container process">
+        <div class="process-side reveal">
+          <div class="eyebrow">Alur Kerja</div>
+          <h2>Proses yang jelas untuk kebutuhan yang tidak boleh terlambat.</h2>
+          <p>
+            Kami menyederhanakan proses pemesanan agar pihak yang membutuhkan pasokan bisa lebih fokus
+            pada operasional. Semua dimulai dari komunikasi yang tepat dan berakhir pada pengiriman yang siap dipakai.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="step reveal" data-step="1">
+            <h3>Konsultasi kebutuhan</h3>
+            <p>
+              Sampaikan jenis kebutuhan, volume, jadwal, dan lokasi. Tahap ini membantu kami memahami
+              skala permintaan agar proses berikutnya lebih cepat dan akurat.
+            </p>
+          </article>
+
+          <article class="step reveal" data-step="2">
+            <h3>Konfirmasi pasokan</h3>
+            <p>
+              Kami menyesuaikan ketersediaan, ritme suplai, dan pola pengiriman sesuai kebutuhan
+              masyarakat atau kebutuhan dapur MBG yang sedang berjalan.
+            </p>
+          </article>
+
+          <article class="step reveal" data-step="3">
+            <h3>Penjadwalan & pengiriman</h3>
+            <p>
+              Setelah detail disepakati, pengiriman dilakukan dengan alur yang tertata agar barang
+              sampai dalam kondisi siap digunakan dan mudah diterima.
+            </p>
+          </article>
+
+          <article class="step reveal" data-step="4">
+            <h3>Evaluasi kebutuhan lanjutan</h3>
+            <p>
+              Untuk kebutuhan rutin, kami membuka koordinasi lanjutan agar pola pasokan semakin stabil,
+              efisien, dan sesuai perkembangan kebutuhan di lapangan.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="kontak">
+      <div class="container">
+        <div class="cta-wrap reveal">
+          <div class="cta-grid">
+            <div>
+              <div class="eyebrow" style="background:rgba(255,255,255,.08); color:#f8f4ec; border-color:rgba(255,255,255,.16);">Hubungi Kami</div>
+              <h2 style="max-width:12ch;">Butuh supplier untuk masyarakat atau dapur MBG?</h2>
+              <p>
+                Agen Apet Pandeglang siap membantu kebutuhan pasokan Anda di wilayah Kabupaten Pandeglang.
+                Klik tombol di samping untuk mulai komunikasi atau sesuaikan kontak dengan informasi Anda sendiri.
+              </p>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; gap:12px;">
+              <a class="btn btn-primary" href="https://wa.me/6200000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="btn btn-secondary" href="mailto:info@agenapetpandeglang.id">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Agen Apet Pandeglang. Semua hak dilindungi.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-row">
+        <div>
+          <strong>Agen Apet Pandeglang</strong><br />
+          Supplier kebutuhan masyarakat dan dapur MBG se-Kabupaten Pandeglang.
+        </div>
+        <div class="footer-links">
+          <a href="#beranda">Beranda</a>
+          <a href="#layanan">Layanan</a>
+          <a href="#proses">Proses</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    if (menuBtn && mobilePanel) {
+      menuBtn.addEventListener('click', () => {
+        const open = mobilePanel.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+
+      mobilePanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobilePanel.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 </body>
 </html>
